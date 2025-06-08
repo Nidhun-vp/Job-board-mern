@@ -43,7 +43,7 @@ export default function App() {
 
         <section className='mb-4'>
           <p>
-            Connecting talent with opportunity, one job at a time.Your future begins here — explore careers that match your passion.Built with ❤️ using the MERN Stack.
+            Connecting talent with opportunity, one job at a time.Your future begins here — explore careers that match your passion.Built with love using the MERN Stack.
             
           </p>
         </section>
