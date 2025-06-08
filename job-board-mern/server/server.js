@@ -1,22 +1,28 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
+require("dotenv").config(); // or use the two-line version as explained above
+const express   = require("express");
+const mongoose  = require("mongoose");
+const cors      = require("cors");
 const jobRoutes = require("./Routes/jobs");
 
-dotenv.config();
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/jobs", jobRoutes);
+app.use("/api/jobs", jobRoutes);
+
+const PORT       = process.env.PORT || 5000;
+const MONGO_URL  = process.env.MONGO_URL;
 
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
-
-app.get("/", (_, res) => res.send("API is running"));
-
-module.exports = app; 
+  .connect(MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("✅ Connected to MongoDB");
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+  })
+  .catch((error) => {
+    console.error("❌ MongoDB connection failed:", error.message);
+  });
