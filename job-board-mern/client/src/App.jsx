@@ -3,7 +3,8 @@ import Footer from "../component/Footer";
 import axios  from "axios";
 
 const JOB_CATEGORIES = ["All", "Design", "Development", "Marketing"];
-const BACKEND_URL    = "http://localhost:5000";
+const BACKEND_URL    = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
 export default function App() {
   /* ---------------- state ---------------- */
