@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/api/jobs", jobRoutes);
 
 const PORT       = process.env.PORT || 5000;
-const MONGO_URL  = process.env.MONGO_URL;
+const MONGO_URL  = process.env.MONGO_URI;
 
 mongoose
   .connect(MONGO_URL, {
