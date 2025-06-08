@@ -1,4 +1,4 @@
-require("dotenv").config(); // or use the two-line version as explained above
+require("dotenv").config(); 
 const express   = require("express");
 const mongoose  = require("mongoose");
 const cors      = require("cors");
