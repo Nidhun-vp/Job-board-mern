@@ -3,7 +3,7 @@ import Footer from "../component/Footer";
 import axios  from "axios";
 
 const JOB_CATEGORIES = ["All", "Design", "Development", "Marketing"];
-const BACKEND_URL = "http://localhost:5000/api"; 
+const BACKEND_URL = "https://job-board-backend-a1nu.onrender.com/api";
 
 
 
