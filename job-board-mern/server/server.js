@@ -10,6 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/jobs", jobRoutes);
+app.use(cors({
+  origin: ["https://job-board-frontend.vercel.app"], // your deployed frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 
 const PORT       = process.env.PORT || 5000;
 const MONGO_URL  = process.env.MONGO_URI;
